@@ -24,6 +24,10 @@ class DirectionalLight {
             cos(self.eulers[1] * .pi / 180.0)
         ]
     }
+    
+    var shaderInput: DLightParameters {
+        DLightParameters(direction: self.direction, color: self.color)
+    }
 }
 
 class SpotLight {
@@ -46,6 +50,10 @@ class SpotLight {
             cos(self.eulers[1] * .pi / 180.0)
         ]
     }
+    
+    var shaderInput: SLightParameters {
+        SLightParameters(position: self.position, direction: self.direction, color: self.color, angle: self.angle)
+    }
 }
 
 class PointLight {
@@ -55,6 +63,10 @@ class PointLight {
     init(position: simd_float3, color: simd_float3) {
         self.position = position
         self.color = color
+    }
+    
+    var shaderInput: PLightParameters {
+        PLightParameters(position: self.position, color: self.color)
     }
 }
 

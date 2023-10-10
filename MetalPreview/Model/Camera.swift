@@ -45,4 +45,12 @@ class Camera {
     private var up: simd_float3 {
         simd.normalize(simd.cross(self.forward, self.right))
     }
+    
+    var shaderInput: CameraParameters {
+        let lookatTarget = (self.target == nil) ? self.forward : self.target!
+        let view = Matrix44.create_lookat(eye: self.transform.position, target: lookatTarget, up: self.up)
+        let projection = Matrix44.create_perspective_projection(fovy: self.fovy, aspect: self.aspect, near: self.near, far: self.far)
+        
+        return CameraParameters(position: self.transform.position, view: view, projection: projection)
+    }
 }

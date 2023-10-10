@@ -83,10 +83,10 @@
 		560E8E112AD5445C0038D743 /* MetalPreview */ = {
 			isa = PBXGroup;
 			children = (
+				560E8E122AD5445C0038D743 /* MetalPreview.h */,
 				560E8E2F2AD545F00038D743 /* Metal */,
 				560E8E2C2AD5452F0038D743 /* Model */,
 				560E8E292AD544870038D743 /* Utility */,
-				560E8E122AD5445C0038D743 /* MetalPreview.h */,
 				560E8E132AD5445C0038D743 /* MetalPreview.docc */,
 			);
 			path = MetalPreview;
