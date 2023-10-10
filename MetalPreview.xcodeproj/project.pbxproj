@@ -17,6 +17,7 @@
 		560E8E332AD546210038D743 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E322AD546210038D743 /* Object.swift */; };
 		560E8E352AD546970038D743 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E342AD546970038D743 /* Camera.swift */; };
 		560E8E372AD546E20038D743 /* Light.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E362AD546E20038D743 /* Light.swift */; };
+		560E8E3B2AD54C280038D743 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E3A2AD54C280038D743 /* Scene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +42,7 @@
 		560E8E322AD546210038D743 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 		560E8E342AD546970038D743 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 		560E8E362AD546E20038D743 /* Light.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Light.swift; sourceTree = "<group>"; };
+		560E8E3A2AD54C280038D743 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				560E8E322AD546210038D743 /* Object.swift */,
 				560E8E342AD546970038D743 /* Camera.swift */,
 				560E8E362AD546E20038D743 /* Light.swift */,
+				560E8E3A2AD54C280038D743 /* Scene.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -240,6 +243,7 @@
 				560E8E312AD546060038D743 /* OBJLoader.swift in Sources */,
 				560E8E352AD546970038D743 /* Camera.swift in Sources */,
 				560E8E142AD5445C0038D743 /* MetalPreview.docc in Sources */,
+				560E8E3B2AD54C280038D743 /* Scene.swift in Sources */,
 				560E8E2E2AD545C90038D743 /* Transform.swift in Sources */,
 				560E8E372AD546E20038D743 /* Light.swift in Sources */,
 				560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */,

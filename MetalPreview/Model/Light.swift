@@ -8,7 +8,7 @@
 import Foundation
 import simd
 
-protocol Lightable {
+protocol Lightable: AnyObject {
     var color: simd_float3 { get set }
 }
 
