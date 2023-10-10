@@ -8,7 +8,11 @@
 import Foundation
 import simd
 
-class DirectionalLight {
+protocol Lightable {
+    var color: simd_float3 { get set }
+}
+
+class DirectionalLight: Lightable {
     var color: simd_float3
     var eulers: simd_float3
     
@@ -30,7 +34,7 @@ class DirectionalLight {
     }
 }
 
-class SpotLight {
+class SpotLight: Lightable {
     var position: simd_float3
     var eulers: simd_float3
     var color: simd_float3
@@ -56,7 +60,7 @@ class SpotLight {
     }
 }
 
-class PointLight {
+class PointLight: Lightable {
     var position: simd_float3
     var color: simd_float3
     
