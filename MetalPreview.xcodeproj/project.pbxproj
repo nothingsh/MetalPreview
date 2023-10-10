@@ -15,6 +15,7 @@
 		560E8E2E2AD545C90038D743 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E2D2AD545C90038D743 /* Transform.swift */; };
 		560E8E312AD546060038D743 /* OBJLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E302AD546060038D743 /* OBJLoader.swift */; };
 		560E8E332AD546210038D743 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E322AD546210038D743 /* Object.swift */; };
+		560E8E352AD546970038D743 /* Camera.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E342AD546970038D743 /* Camera.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +38,7 @@
 		560E8E2D2AD545C90038D743 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
 		560E8E302AD546060038D743 /* OBJLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBJLoader.swift; sourceTree = "<group>"; };
 		560E8E322AD546210038D743 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
+		560E8E342AD546970038D743 /* Camera.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Camera.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 			children = (
 				560E8E2D2AD545C90038D743 /* Transform.swift */,
 				560E8E322AD546210038D743 /* Object.swift */,
+				560E8E342AD546970038D743 /* Camera.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -232,6 +235,7 @@
 			files = (
 				560E8E332AD546210038D743 /* Object.swift in Sources */,
 				560E8E312AD546060038D743 /* OBJLoader.swift in Sources */,
+				560E8E352AD546970038D743 /* Camera.swift in Sources */,
 				560E8E142AD5445C0038D743 /* MetalPreview.docc in Sources */,
 				560E8E2E2AD545C90038D743 /* Transform.swift in Sources */,
 				560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */,
