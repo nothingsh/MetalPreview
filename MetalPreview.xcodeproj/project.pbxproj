@@ -12,6 +12,9 @@
 		560E8E1F2AD5445C0038D743 /* MetalPreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E1E2AD5445C0038D743 /* MetalPreviewTests.swift */; };
 		560E8E202AD5445C0038D743 /* MetalPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 560E8E122AD5445C0038D743 /* MetalPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E2A2AD544950038D743 /* LinearAlgebra.swift */; };
+		560E8E2E2AD545C90038D743 /* Transform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E2D2AD545C90038D743 /* Transform.swift */; };
+		560E8E312AD546060038D743 /* OBJLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E302AD546060038D743 /* OBJLoader.swift */; };
+		560E8E332AD546210038D743 /* Object.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E322AD546210038D743 /* Object.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,6 +34,9 @@
 		560E8E192AD5445C0038D743 /* MetalPreviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalPreviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		560E8E1E2AD5445C0038D743 /* MetalPreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPreviewTests.swift; sourceTree = "<group>"; };
 		560E8E2A2AD544950038D743 /* LinearAlgebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearAlgebra.swift; sourceTree = "<group>"; };
+		560E8E2D2AD545C90038D743 /* Transform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transform.swift; sourceTree = "<group>"; };
+		560E8E302AD546060038D743 /* OBJLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OBJLoader.swift; sourceTree = "<group>"; };
+		560E8E322AD546210038D743 /* Object.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Object.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +79,8 @@
 		560E8E112AD5445C0038D743 /* MetalPreview */ = {
 			isa = PBXGroup;
 			children = (
+				560E8E2F2AD545F00038D743 /* Metal */,
+				560E8E2C2AD5452F0038D743 /* Model */,
 				560E8E292AD544870038D743 /* Utility */,
 				560E8E122AD5445C0038D743 /* MetalPreview.h */,
 				560E8E132AD5445C0038D743 /* MetalPreview.docc */,
@@ -94,6 +102,23 @@
 				560E8E2A2AD544950038D743 /* LinearAlgebra.swift */,
 			);
 			path = Utility;
+			sourceTree = "<group>";
+		};
+		560E8E2C2AD5452F0038D743 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				560E8E2D2AD545C90038D743 /* Transform.swift */,
+				560E8E322AD546210038D743 /* Object.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		560E8E2F2AD545F00038D743 /* Metal */ = {
+			isa = PBXGroup;
+			children = (
+				560E8E302AD546060038D743 /* OBJLoader.swift */,
+			);
+			path = Metal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -205,7 +230,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				560E8E332AD546210038D743 /* Object.swift in Sources */,
+				560E8E312AD546060038D743 /* OBJLoader.swift in Sources */,
 				560E8E142AD5445C0038D743 /* MetalPreview.docc in Sources */,
+				560E8E2E2AD545C90038D743 /* Transform.swift in Sources */,
 				560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
