@@ -11,6 +11,7 @@
 		560E8E1A2AD5445C0038D743 /* MetalPreview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 560E8E0F2AD5445C0038D743 /* MetalPreview.framework */; };
 		560E8E1F2AD5445C0038D743 /* MetalPreviewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E1E2AD5445C0038D743 /* MetalPreviewTests.swift */; };
 		560E8E202AD5445C0038D743 /* MetalPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 560E8E122AD5445C0038D743 /* MetalPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E2A2AD544950038D743 /* LinearAlgebra.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		560E8E132AD5445C0038D743 /* MetalPreview.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = MetalPreview.docc; sourceTree = "<group>"; };
 		560E8E192AD5445C0038D743 /* MetalPreviewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MetalPreviewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		560E8E1E2AD5445C0038D743 /* MetalPreviewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetalPreviewTests.swift; sourceTree = "<group>"; };
+		560E8E2A2AD544950038D743 /* LinearAlgebra.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LinearAlgebra.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -71,6 +73,7 @@
 		560E8E112AD5445C0038D743 /* MetalPreview */ = {
 			isa = PBXGroup;
 			children = (
+				560E8E292AD544870038D743 /* Utility */,
 				560E8E122AD5445C0038D743 /* MetalPreview.h */,
 				560E8E132AD5445C0038D743 /* MetalPreview.docc */,
 			);
@@ -83,6 +86,14 @@
 				560E8E1E2AD5445C0038D743 /* MetalPreviewTests.swift */,
 			);
 			path = MetalPreviewTests;
+			sourceTree = "<group>";
+		};
+		560E8E292AD544870038D743 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				560E8E2A2AD544950038D743 /* LinearAlgebra.swift */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -195,6 +206,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				560E8E142AD5445C0038D743 /* MetalPreview.docc in Sources */,
+				560E8E2B2AD544950038D743 /* LinearAlgebra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -409,6 +421,7 @@
 		560E8E272AD5445C0038D743 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -428,6 +441,7 @@
 		560E8E282AD5445C0038D743 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
