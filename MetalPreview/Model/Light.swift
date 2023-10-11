@@ -8,20 +8,20 @@
 import Foundation
 import simd
 
-protocol Lightable: AnyObject {
+public protocol Lightable: AnyObject {
     var color: simd_float3 { get set }
 }
 
-class DirectionalLight: Lightable {
-    var color: simd_float3
-    var eulers: simd_float3
+public class DirectionalLight: Lightable {
+    public var color: simd_float3
+    public var eulers: simd_float3
     
-    init(eulers: simd_float3, color: simd_float3) {
+    public init(eulers: simd_float3, color: simd_float3) {
         self.color = color
         self.eulers = eulers
     }
     
-    var direction: simd_float3 {
+    public var direction: simd_float3 {
         return [
             cos(self.eulers[2] * .pi / 180.0) * sin(self.eulers[1] * .pi / 180.0),
             sin(self.eulers[2] * .pi / 180.0) * sin(self.eulers[1] * .pi / 180.0),
@@ -29,25 +29,25 @@ class DirectionalLight: Lightable {
         ]
     }
     
-    var shaderInput: DLightParameters {
+    public var shaderInput: DLightParameters {
         DLightParameters(direction: self.direction, color: self.color)
     }
 }
 
-class SpotLight: Lightable {
-    var position: simd_float3
-    var eulers: simd_float3
-    var color: simd_float3
-    var angle: Float
+public class SpotLight: Lightable {
+    public var position: simd_float3
+    public var eulers: simd_float3
+    public var color: simd_float3
+    public var angle: Float
     
-    init(position: simd_float3, eulers: simd_float3, color: simd_float3) {
+    public init(position: simd_float3, eulers: simd_float3, color: simd_float3) {
         self.position = position
         self.eulers = eulers
         self.color = color
         self.angle = 0
     }
     
-    var direction: simd_float3 {
+    public var direction: simd_float3 {
         return [
             cos(self.eulers[2] * .pi / 180.0) * sin(self.eulers[1] * .pi / 180.0),
             sin(self.eulers[2] * .pi / 180.0) * sin(self.eulers[1] * .pi / 180.0),
@@ -55,21 +55,21 @@ class SpotLight: Lightable {
         ]
     }
     
-    var shaderInput: SLightParameters {
+    public var shaderInput: SLightParameters {
         SLightParameters(position: self.position, direction: self.direction, color: self.color, angle: self.angle)
     }
 }
 
-class PointLight: Lightable {
-    var position: simd_float3
-    var color: simd_float3
+public class PointLight: Lightable {
+    public var position: simd_float3
+    public var color: simd_float3
     
-    init(position: simd_float3, color: simd_float3) {
+    public init(position: simd_float3, color: simd_float3) {
         self.position = position
         self.color = color
     }
     
-    var shaderInput: PLightParameters {
+    public var shaderInput: PLightParameters {
         PLightParameters(position: self.position, color: self.color)
     }
 }

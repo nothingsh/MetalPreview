@@ -7,25 +7,25 @@
 
 import Foundation
 
-class Scene {
-    private(set) var camera: Camera
-    private(set) var objects: [Object]
+public class Scene {
+    public private(set) var camera: Camera
+    public private(set) var objects: [Object]
     
     // Lights
     private(set) var lights: [Lightable]
     
-    init() {
+    public init() {
         self.camera = Camera(transform: .origin)
         self.objects = []
         self.lights = []
     }
     
-    func addObject(transform: Transform = .origin, meshURL: URL, textureURL: URL) {
+    public func addObject(transform: Transform = .origin, meshURL: URL, textureURL: URL) {
         let object = Object(transform: transform, mesh: meshURL, texture: textureURL)
         self.objects.append(object)
     }
     
-    func removeObject(object: Object) {
+    public func removeObject(object: Object) {
         guard let index = self.objects.firstIndex(where: { $0 === object }) else {
             return
         }
@@ -33,11 +33,11 @@ class Scene {
         self.objects.remove(at: index)
     }
     
-    func addLight(light: Lightable) {
+    public func addLight(light: Lightable) {
         self.lights.append(light)
     }
     
-    func removeLight(light: Lightable) {
+    public func removeLight(light: Lightable) {
         guard let index = self.lights.firstIndex(where: { $0 === light }) else {
             return
         }

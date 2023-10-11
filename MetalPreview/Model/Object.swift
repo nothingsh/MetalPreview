@@ -8,17 +8,17 @@
 import MetalKit
 
 /// A 3d object with mesh and material
-class Object {
+public class Object {
     // position, rotation and scale
-    var transform: Transform
+    public var transform: Transform
     // 3d obj mesh
-    var mtkMesh: MTKMesh!
+    public var mtkMesh: MTKMesh!
     
     // obj meterial
-    var mtlTexture: MTLTexture!
-    var mtlSamplerState: MTLSamplerState!
+    public var mtlTexture: MTLTexture!
+    public var mtlSamplerState: MTLSamplerState!
     
-    init(transform: Transform, mesh: URL, texture: URL) {
+    public init(transform: Transform, mesh: URL, texture: URL) {
         self.transform = transform
         
         self.loadMesh(with: mesh)
@@ -66,7 +66,7 @@ class Object {
         self.mtlSamplerState = sampler
     }
     
-    static var sharedVertexDescriptor: MTLVertexDescriptor = {
+    public static var sharedVertexDescriptor: MTLVertexDescriptor = {
         let vertexDescriptor = MTLVertexDescriptor()
         var offset: Int = 0
         

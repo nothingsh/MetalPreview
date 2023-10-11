@@ -10,14 +10,14 @@ import MetalKit
 #if os(macOS)
 import AppKit
 
-typealias ViewController = NSViewController
+public typealias ViewController = NSViewController
 #else
 import UIKit
 
-typealias ViewController = UIViewController
+public typealias ViewController = UIViewController
 #endif
 
-class PreviewViewController: ViewController {
+public class PreviewViewController: ViewController {
     var mtkView: MTKView!
     var mtlDevice: MTLDevice!
     var commandQueue: MTLCommandQueue!
@@ -26,7 +26,7 @@ class PreviewViewController: ViewController {
     
     var scene: Scene!
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         guard let device = MTLCreateSystemDefaultDevice() else {
@@ -84,7 +84,7 @@ class PreviewViewController: ViewController {
 }
 
 extension PreviewViewController: MTKViewDelegate {
-    func draw(in view: MTKView) {
+    public func draw(in view: MTKView) {
         guard let drawable = view.currentDrawable else {
             return
         }
@@ -113,7 +113,7 @@ extension PreviewViewController: MTKViewDelegate {
         commandBuffer.commit()
     }
     
-    func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
+    public func mtkView(_ view: MTKView, drawableSizeWillChange size: CGSize) {
         
     }
     
