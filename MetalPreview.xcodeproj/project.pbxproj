@@ -20,6 +20,7 @@
 		560E8E3B2AD54C280038D743 /* Scene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E3A2AD54C280038D743 /* Scene.swift */; };
 		560E8E3E2AD54E220038D743 /* lightShaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 560E8E3D2AD54E220038D743 /* lightShaders.metal */; };
 		560E8E402AD551830038D743 /* shaderHeader.h in Headers */ = {isa = PBXBuildFile; fileRef = 560E8E3F2AD551830038D743 /* shaderHeader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		565C01122AD6D44B0072F683 /* PreviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565C01112AD6D44B0072F683 /* PreviewViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		560E8E3A2AD54C280038D743 /* Scene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Scene.swift; sourceTree = "<group>"; };
 		560E8E3D2AD54E220038D743 /* lightShaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = lightShaders.metal; sourceTree = "<group>"; };
 		560E8E3F2AD551830038D743 /* shaderHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = shaderHeader.h; sourceTree = "<group>"; };
+		565C01112AD6D44B0072F683 /* PreviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreviewViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				560E8E3C2AD54E100038D743 /* Shader */,
 				560E8E2F2AD545F00038D743 /* Metal */,
 				560E8E2C2AD5452F0038D743 /* Model */,
+				565C01102AD6D41B0072F683 /* Controller */,
 				560E8E292AD544870038D743 /* Utility */,
 				560E8E132AD5445C0038D743 /* MetalPreview.docc */,
 			);
@@ -142,6 +145,14 @@
 				560E8E3D2AD54E220038D743 /* lightShaders.metal */,
 			);
 			path = Shader;
+			sourceTree = "<group>";
+		};
+		565C01102AD6D41B0072F683 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				565C01112AD6D44B0072F683 /* PreviewViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,6 +268,7 @@
 				560E8E332AD546210038D743 /* Object.swift in Sources */,
 				560E8E312AD546060038D743 /* OBJLoader.swift in Sources */,
 				560E8E3E2AD54E220038D743 /* lightShaders.metal in Sources */,
+				565C01122AD6D44B0072F683 /* PreviewViewController.swift in Sources */,
 				560E8E352AD546970038D743 /* Camera.swift in Sources */,
 				560E8E142AD5445C0038D743 /* MetalPreview.docc in Sources */,
 				560E8E3B2AD54C280038D743 /* Scene.swift in Sources */,
