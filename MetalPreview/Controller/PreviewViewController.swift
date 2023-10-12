@@ -24,36 +24,56 @@ public class PreviewViewController: ViewController {
     var renderPipelineState: MTLRenderPipelineState!
     var depthStencilState: MTLDepthStencilState!
     
-    var scene: Scene!
+    public var scene: Scene
     
-    public override func viewDidLoad() {
-        super.viewDidLoad()
+    public override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
+        self.scene = Scene()
+        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
         guard let device = MTLCreateSystemDefaultDevice() else {
             fatalError()
         }
         self.mtlDevice = device
-        self.mtkView = MTKView(frame: self.view.frame, device: device)
-        self.view = self.mtkView
-        self.mtkView.delegate = self
-        self.commandQueue = device.makeCommandQueue()
-        
-        self.scene = Scene()
         OBJLoader.setupSharedOBJLoader(with: device)
+    }
+    
+    public required init?(coder: NSCoder) {
+        self.scene = Scene()
+        super.init(coder: coder)
+        
+        guard let device = MTLCreateSystemDefaultDevice() else {
+            fatalError()
+        }
+        self.mtlDevice = device
+        OBJLoader.setupSharedOBJLoader(with: device)
+    }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        self.mtkView = MTKView(frame: self.view.frame, device: self.mtlDevice)
+        self.view = self.mtkView
+        self.mtkView.depthStencilPixelFormat = .depth32Float
+        self.mtkView.delegate = self
+        self.commandQueue = self.mtlDevice.makeCommandQueue()
         
         self.renderPipelineState = self.pipelineBuilder(vertexFunc: "vertexShader", fragFunc: "fragmentShader")
         self.depthStencilState = self.depthStencilBuilder()
+        
+        let cameraAspect = (self.mtkView.bounds.width == 0) ? 1 : self.mtkView.bounds.height / self.mtkView.bounds.width
+        self.scene.camera.aspect = Float(cameraAspect)
     }
     
     private func pipelineBuilder(vertexFunc: String, fragFunc: String) -> MTLRenderPipelineState {
-        guard let library: MTLLibrary = self.mtlDevice.makeDefaultLibrary() else {
+        let bundle = Bundle(for: type(of: self))
+        guard let library: MTLLibrary = try? self.mtlDevice.makeDefaultLibrary(bundle: bundle) else {
             fatalError()
         }
         
         let pipelineDescriptor = MTLRenderPipelineDescriptor()
         pipelineDescriptor.vertexFunction = library.makeFunction(name: vertexFunc)
         pipelineDescriptor.fragmentFunction = library.makeFunction(name: fragFunc)
-        pipelineDescriptor.colorAttachments[0].pixelFormat = .bgra8Unorm
+        pipelineDescriptor.colorAttachments[0].pixelFormat = self.mtkView.colorPixelFormat
         pipelineDescriptor.colorAttachments[0].isBlendingEnabled = true
         pipelineDescriptor.colorAttachments[0].rgbBlendOperation = .add
         pipelineDescriptor.colorAttachments[0].alphaBlendOperation = .add
@@ -62,7 +82,7 @@ public class PreviewViewController: ViewController {
         pipelineDescriptor.colorAttachments[0].sourceRGBBlendFactor = .sourceAlpha
         pipelineDescriptor.colorAttachments[0].sourceAlphaBlendFactor = .sourceAlpha
         pipelineDescriptor.vertexDescriptor = Object.sharedVertexDescriptor
-        pipelineDescriptor.depthAttachmentPixelFormat = .depth32Float
+        pipelineDescriptor.depthAttachmentPixelFormat = self.mtkView.depthStencilPixelFormat
         
         do {
             return try self.mtlDevice.makeRenderPipelineState(descriptor: pipelineDescriptor)
@@ -96,7 +116,7 @@ extension PreviewViewController: MTKViewDelegate {
         guard let renderPassDescriptor = view.currentRenderPassDescriptor else {
             return
         }
-        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0, 0, 0, 1)
+        renderPassDescriptor.colorAttachments[0].clearColor = MTLClearColorMake(0.5, 0.5, 0.5, 1)
         renderPassDescriptor.colorAttachments[0].loadAction = .clear
         renderPassDescriptor.colorAttachments[0].storeAction = .store
         
