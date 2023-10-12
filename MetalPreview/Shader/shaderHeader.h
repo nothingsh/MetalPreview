@@ -27,6 +27,7 @@ struct CameraParameters {
 struct DLightParameters {
     simd_float3 direction;
     simd_float3 color;
+    bool visiable;
 };
 
 // spot light
@@ -35,12 +36,14 @@ struct SLightParameters {
     simd_float3 direction;
     simd_float3 color;
     float angle;
+    bool visiable;
 };
 
 // point light
 struct PLightParameters {
     simd_float3 position;
     simd_float3 color;
+    bool visiable;
 };
 
 struct LightCount {

@@ -73,16 +73,22 @@ fragment float4 fragmentShader(
     
     // direction
     for(uint i = 0; i < counts.direction; i++) {
-        color += applyDirectionalLight(input.normal, directionLights[i], baseColor, fragCam);
+        if (directionLights[i].visiable) {
+            color += applyDirectionalLight(input.normal, directionLights[i], baseColor, fragCam);
+        }
     }
     
     // spotlight
     for(uint i = 0; i < counts.spot; i++) {
-        color += applySpotLight(input.fragmentPosition, input.normal, spotlights[i], baseColor, fragCam);
+        if (spotlights[i].visiable) {
+            color += applySpotLight(input.fragmentPosition, input.normal, spotlights[i], baseColor, fragCam);
+        }
     }
     // point
     for (uint i = 0; i < counts.point; ++i) {
-        color += applyPointLight(input.fragmentPosition, input.normal, pointLights[i], baseColor, fragCam);
+        if (pointLights[i].visiable) {
+            color += applyPointLight(input.fragmentPosition, input.normal, pointLights[i], baseColor, fragCam);
+        }
     }
     
     return float4(color, alpha);

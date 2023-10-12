@@ -30,7 +30,7 @@ public class DirectionalLight: Lightable {
     }
     
     public var shaderInput: DLightParameters {
-        DLightParameters(direction: self.direction, color: self.color)
+        DLightParameters(direction: self.direction, color: self.color, visiable: true)
     }
 }
 
@@ -56,7 +56,7 @@ public class SpotLight: Lightable {
     }
     
     public var shaderInput: SLightParameters {
-        SLightParameters(position: self.position, direction: self.direction, color: self.color, angle: self.angle)
+        SLightParameters(position: self.position, direction: self.direction, color: self.color, angle: self.angle, visiable: true)
     }
 }
 
@@ -70,7 +70,7 @@ public class PointLight: Lightable {
     }
     
     public var shaderInput: PLightParameters {
-        PLightParameters(position: self.position, color: self.color)
+        PLightParameters(position: self.position, color: self.color, visiable: true)
     }
 }
 

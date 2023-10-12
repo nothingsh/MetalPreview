@@ -144,15 +144,30 @@ extension PreviewViewController: MTKViewDelegate {
         
         // light inputs
         let directionalLights = self.scene.lights.filter { $0 is DirectionalLight }
-        var dlInputs = directionalLights.map { ($0 as! DirectionalLight).shaderInput }
+        var dlInputs: [DLightParameters] = []
+        if directionalLights.isEmpty {
+            dlInputs = [DLightParameters(direction: .zero, color: .zero, visiable: false)]
+        } else {
+            dlInputs = directionalLights.map { ($0 as! DirectionalLight).shaderInput }
+        }
         renderEncoder.setFragmentBytes(&dlInputs, length: MemoryLayout<DLightParameters>.stride * dlInputs.count, index: 0)
         
         let spotLights = self.scene.lights.filter { $0 is SpotLight }
-        var slInputs = spotLights.map { ($0 as! SpotLight).shaderInput }
+        var slInputs: [SLightParameters] = []
+        if spotLights.isEmpty {
+            slInputs = [SLightParameters(position: .zero, direction: .zero, color: .zero, angle: 0, visiable: false)]
+        } else {
+            slInputs = spotLights.map { ($0 as! SpotLight).shaderInput }
+        }
         renderEncoder.setFragmentBytes(&slInputs, length: MemoryLayout<SLightParameters>.stride * slInputs.count, index: 1)
         
         let pointLights = self.scene.lights.filter { $0 is PointLight }
-        var plInputs = pointLights.map { ($0 as! PointLight).shaderInput }
+        var plInputs: [PLightParameters] = []
+        if pointLights.isEmpty {
+            plInputs = [PLightParameters(position: .zero, color: .zero, visiable: false)]
+        } else {
+            plInputs = pointLights.map { ($0 as! PointLight).shaderInput }
+        }
         renderEncoder.setFragmentBytes(&plInputs, length: MemoryLayout<PLightParameters>.stride * plInputs.count, index: 2)
         
         var lightCount = LightCount(direction: uint(dlInputs.count), spot: uint(slInputs.count), point: uint(plInputs.count))
